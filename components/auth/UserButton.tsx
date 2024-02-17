@@ -30,12 +30,12 @@ export const UserButton = () => {
       <DropdownMenuContent className="w-40" align="end">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogoutButton>
+        <LogoutButton>
+          <DropdownMenuItem>
             <ExitIcon className="h-4 w-4 mr-2" />
             Logout
-          </LogoutButton>
-        </DropdownMenuItem>
+          </DropdownMenuItem>
+        </LogoutButton>
       </DropdownMenuContent>
     </DropdownMenu>
   );
