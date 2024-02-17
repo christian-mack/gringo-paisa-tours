@@ -1,5 +1,6 @@
 "use client";
 
+import { UserButton } from "@/components/auth/UserButton";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +9,7 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-secondary justify-between items-center p-4 rounded-xl w-[600px] shadow-sm">
+    <nav className="bg-secondary justify-between items-center p-4 rounded-xl w-[600px] shadow-sm flex">
       <div className="flex gap-x-2">
         <Button
           asChild
@@ -32,7 +33,9 @@ export const Navbar = () => {
           <Link href="/settings">Settings</Link>
         </Button>
       </div>
-      <p>User Button</p>
-    </div>
+      <p>
+        <UserButton />
+      </p>
+    </nav>
   );
 };
