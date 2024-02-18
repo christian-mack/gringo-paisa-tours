@@ -18,15 +18,13 @@ export default auth((req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
-  if (isApiAuthRoute) {
-    return Response.json({ status: 200 });
-  }
+  // TODO: address why returning something other than null. can't deploy when returning null
+  // if (isApiAuthRoute) {
+  //   return null;
+  // }
 
-  if (isAuthRoute) {
-    if (isLoggedIn) {
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
-    }
-    return Response.json({ status: 200 });
+  if (isAuthRoute && isLoggedIn) {
+    return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
   }
 
   if (!isLoggedIn && !isPublicRoute) {
@@ -42,7 +40,8 @@ export default auth((req) => {
     );
   }
 
-  return Response.json({ status: 200 });
+  // TODO: same as above
+  // return null;
 });
 
 // Optionally, don't invoke Middleware on some paths
